@@ -62,6 +62,11 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
+	{ CMDKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ CMDKEY,                 XK_bracketright, focusstack,     {.i = +1 } },
+	{ CMDKEY,                  XK_bracketleft, focusstack,     {.i = -1 } },
+	{ CMDKEY|ControlMask,           XK_Left,   setmfact,       {.f = -0.05} },
+	{ CMDKEY|ControlMask,           XK_Right,  setmfact,       {.f = +0.05} },
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
